@@ -32,16 +32,28 @@ function Announce() {
         <div>
           <Carousel images={logement.pictures}/>
           <h1>{logement.title}</h1>
-          <h4>{logement.location}</h4>
+          <h3>{logement.location}</h3>
           <div className="tags">
-            {tagsLogement}
+            {logement.tags}
           </div>
-    </div>
-      );
-      };
-  );
-
-
-
-
+          <div className="host-container">
+            <Host 
+                hostName = {logement.host.name}
+                hostPicture = {logement.host.picture}
+            />
+          </div>
+          <div className= "rating-container">
+            <Rate score = {logement.rating}/>
+          </div>
+          <div className="collapse-container">
+            <Collapse
+              aboutTitle="Description"
+              aboutText={logement.description}
+            />
+					<Collapse aboutTitle="Équipements" aboutText={equipements} />
+				</div>
+			</div>
+		)
+      }
+	
 export default Announce;
