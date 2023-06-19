@@ -1,0 +1,22 @@
+.notFoundContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 22px 6%;
+}
+
+.notFoundNumber {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-weight: 700px;
+  font-size: 288px;
+  margin: 12rem 0 1rem 0;
+}
+
+.notFoundText {
+  display: flex;
+  align-items: flex-end;
+  font-weight: 500px;
+  font-size: 36px;
+  margin: 0 11%;
+}
