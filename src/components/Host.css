@@ -1,0 +1,4 @@
+.host_Picture img {
+  border-radius: 50%;
+  display: flex;
+}

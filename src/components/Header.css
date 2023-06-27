@@ -7,8 +7,21 @@
   padding: 1rem 0;
 }
 
-.Header ul {
+.Header .links {
   list-style-type: none;
   display: flex;
   padding-left: 0;
+  background-color: white;
+}
+
+.Header .links a {
+  text-decoration: none;
+}
+
+.header_link {
+  padding: 10px;
+  color: var(--red);
+}
+.link_active {
+  border-bottom: 2px solid;
 }

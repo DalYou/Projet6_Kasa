@@ -2,6 +2,10 @@ import './Home.css';
 import logementsJson from "../logements.json";
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Header from '../components/Header';
+import Banner from '../components/Banner';
+
+import BannerHome from "../assets/BannerHome.jpg"
 
 function Home() {
   const [logements, setLogements] = useState ([]);
@@ -10,12 +14,17 @@ function Home() {
   },[])
   return (
     <div className="Home">
-      <h1>Chez vous, partout et ailleurs</h1>
-      <ul>
+            <Header/>
+
+      <Banner imgSrc={BannerHome} title={"Chez vous, partout et ailleurs"} />
+
+      <ul className='announces_list'>
         {logements.map(logement => (
           <li key={logement.id}>
-            <NavLink to={"/annonce/"+logement.id}>
+            <NavLink className="annonce_nav_link" to={"/annonce/"+logement.id}>
               <img src={logement.cover} alt={logement.title} />
+              <div className='dark_filter'></div>
+              <h2>{logement.title}</h2>
             </NavLink>
           </li>
         ))}

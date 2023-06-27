@@ -2,9 +2,9 @@ import "./Host.css";
 
 const Host = (props) => {
     return (
-    <aside className="host-comp">
-        <div className="host-name">{props.hostName}</div>
-        <div className="hostPicture">
+    <aside className="host_container">
+        <div className="host_name">{props.hostName}</div>
+        <div className="host_Picture">
             <img src={props.hostPicture} alt={props.id} />
         </div>
     </aside>

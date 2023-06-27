@@ -3,57 +3,79 @@ import logementsJson from "../logements.json";
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Carousel from '../components/Carousel';
+import Host from '../components/Host';
+import Rate from '../components/Rate';
+import Collapse from '../components/Collapse';
+import Header from '../components/Header';
 
 function Announce() {
   const navigate = useNavigate();
   const urlParams = useParams();
   const [logement, setLogement] = useState({});
 
-  const fiabilite = "Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées  par nos équipes."
-  const respect   = "La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation du voisinage entraînera une exclusion de notre plateforme."
-  const service   = "Nos équipes se tiennent à votre disposition pour vous fournir une expérience parfaite. N'hésitez pas à nous contacter si vous avez la moindre question."
-  const securite  = "La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes."
-  
-    useEffect(() => {
+
+  useEffect(() => {
     const logement_ = logementsJson.find(logementJson => logementJson.id === urlParams.id)
     if (logement_) {
-      setLogement(logement_)
-      console.log(logement_);
+      setLogement(logement_);
     } else {
-     navigate("/logement-non-trouve") 
+      navigate("/logement-non-trouve")
     }
-  },[urlParams.id])
+  }, [urlParams.id, navigate])
 
-}
 
   return (
     <div className="Announce">
+            <Header/> 
+
       {logement && (
-        <div>
-          <Carousel images={logement.pictures}/>
-          <h1>{logement.title}</h1>
-          <h3>{logement.location}</h3>
-          <div className="tags">
-            {logement.tags}
+        <div className="logement_container">
+          
+          {logement.pictures && (
+              <Carousel images={logement.pictures} />
+          )}
+          <div className='logement'>
+            <h1>{logement.title}</h1>
+            <h3>{logement.location}</h3>
+            <div className="tags">
+              <p>{logement.tags}</p>
+            </div>
+
+            <div className="host_container">
+              {logement.host && (
+                <Host
+                hostName={logement.host.name}
+                hostPicture={logement.host.picture}
+                />
+              )} 
+            </div>
+
+            <div className="rating_container">
+              <Rate score={logement.rating} />
+            </div>
           </div>
-          <div className="host-container">
-            <Host 
-                hostName = {logement.host.name}
-                hostPicture = {logement.host.picture}
-            />
+          <div className="collapse_container">
+            
+            <Collapse aboutTitle="Description">
+              <p>{logement.description}</p>
+            </Collapse>
+
+            {logement.equipments && (
+              <Collapse aboutTitle="Équipements">
+              <ul className='logement-equipments-collapse'>
+                {logement.equipments.map((equipment, i) => (
+                  <li key={i}>{equipment}</li>
+                ))}
+              </ul>
+            </Collapse>
+            )}
+            
           </div>
-          <div className= "rating-container">
-            <Rate score = {logement.rating}/>
-          </div>
-          <div className="collapse-container">
-            <Collapse
-              aboutTitle="Description"
-              aboutText={logement.description}
-            />
-					<Collapse aboutTitle="Équipements" aboutText={equipements} />
-				</div>
-			</div>
-		)
-      }
-	
+        </div>
+      )}
+    </div>
+  )
+
+}
+
 export default Announce;

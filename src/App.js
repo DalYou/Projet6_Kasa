@@ -4,8 +4,8 @@ import Announce from './pages/Announce';
 import Home from './pages/Home';
 import NotFound from "./pages/NotFound";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Header from "./components/Header";
 import Footer from './components/Footer';
+
 
 function App() {
   const router = createBrowserRouter([
@@ -28,7 +28,6 @@ function App() {
   ]);
   return (
     <div className="App">
-      <Header/>
       <RouterProvider router={router} />
       <Footer/>
     </div>

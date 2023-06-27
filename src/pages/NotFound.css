@@ -1,22 +1,55 @@
-.notFoundContainer {
+.notFound_Container {
   display: flex;
   flex-direction: column;
   margin: 22px 6%;
+  color: var(--red);
 }
 
-.notFoundNumber {
+.notFound_Number {
   display: flex;
   align-items: center;
-  text-align: center;
-  font-weight: 700px;
+  justify-content: center;
   font-size: 288px;
+  width: 597px;
+  height: 263px;
   margin: 12rem 0 1rem 0;
+
+  @media screen and (min-width: 200px) and (max-width: 1400px) {
+    margin: 0;
+  }
 }
 
-.notFoundText {
+.notFound_Text {
   display: flex;
   align-items: flex-end;
-  font-weight: 500px;
+  justify-content: center;
+  width: 872px;
+  height: 51px;
   font-size: 36px;
   margin: 0 11%;
+
+  @media screen and (min-width: 200px) and (max-width: 1400px) {
+    font-size: 18px;
+    margin: 0;
+  }
+}
+
+.notFound_LinkHome {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  color: var(--red);
+  font-size: 14px;
+  font-weight: 500px;
+  margin-top: 9rem;
+
+  @media screen and (min-width: 200px) and (max-width: 1400px) {
+    font-size: 18px;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration-line: underline;
+  }
 }
