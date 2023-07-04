@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./Collapse.css";
 
-
+//Les chevrons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 
-
+//Apparition des collapse au click
 const Collapse = ({children, aboutTitle}) => {
     const [visible, setVisible] = useState(false);
 

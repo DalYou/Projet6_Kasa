@@ -1,5 +1,6 @@
 import "./Host.css";
 
+//Photo et nom en lien avec le logement
 const Host = (props) => {
     return (
     <aside className="host_container">

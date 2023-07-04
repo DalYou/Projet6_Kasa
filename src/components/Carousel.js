@@ -3,7 +3,7 @@ import "./Carousel.css";
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-/* Afficher les images l'une après l'autre et pouvoir revenir à la première*/
+// Afficher les images des logements l'une après l'autre et pouvoir revenir à la première
 const Carousel = ({ images }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
     const slidePrev = () => {

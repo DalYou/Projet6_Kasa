@@ -1,6 +1,7 @@
 import Logo from "../assets/LOGO-footer.png";
 import "./Footer.css";
 
+//Footer présent sur toutes les pages
 const Footer = () => {
     return ( 
         <footer className="footer_container">

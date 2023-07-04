@@ -7,6 +7,7 @@ import Banner from '../components/Banner';
 
 import BannerHome from "../assets/BannerHome.jpg"
 
+//Page principales avec les photos des logements disponibles
 function Home() {
   const [logements, setLogements] = useState ([]);
   useEffect(()=>{

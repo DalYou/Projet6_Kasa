@@ -8,6 +8,7 @@ import Rate from '../components/Rate';
 import Collapse from '../components/Collapse';
 import Header from '../components/Header';
 
+//Affichage de tous les éléments sur les logements 
 function Announce() {
   const navigate = useNavigate();
   const urlParams = useParams();
@@ -34,28 +35,30 @@ function Announce() {
           {logement.pictures && (
               <Carousel images={logement.pictures} />
           )}
-          <div className='logement'>
-            <h1>{logement.title}</h1>
-            <h3>{logement.location}</h3>
-            <div className="tags">
-              <p>{logement.tags}</p>
+          <div className="logement_description">
+            <div className='logement'>
+              <h1>{logement.title}</h1>
+              <h3>{logement.location}</h3>
+                <ul>
+                  <li className="tags">{logement.tags}</li>
+                </ul>
             </div>
-
+          <div className="logement_name_picture">
             <div className="host_container">
               {logement.host && (
-                <Host
-                hostName={logement.host.name}
-                hostPicture={logement.host.picture}
-                />
+                <Host 
+                  hostName={logement.host.name}
+                  hostPicture={logement.host.picture} 
+                /> 
               )} 
             </div>
-
             <div className="rating_container">
               <Rate score={logement.rating} />
             </div>
           </div>
+    </div>
+
           <div className="collapse_container">
-            
             <Collapse aboutTitle="Description">
               <p>{logement.description}</p>
             </Collapse>
