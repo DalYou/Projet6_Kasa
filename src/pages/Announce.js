@@ -39,8 +39,10 @@ function Announce() {
             <div className='logement'>
               <h1>{logement.title}</h1>
               <h3>{logement.location}</h3>
-                <ul>
-                  <li className="tags">{logement.tags}</li>
+                <ul className="tags">
+                  {logement.tags && logement.tags.map((tag, i) => (
+                    <li key={i} className="tag">{tag}</li>
+                  ))}
                 </ul>
             </div>
           <div className="logement_name_picture">
@@ -59,10 +61,12 @@ function Announce() {
     </div>
 
           <div className="collapse_container">
+            <div>
             <Collapse aboutTitle="Description">
               <p>{logement.description}</p>
             </Collapse>
-
+            </div>
+            <div>
             {logement.equipments && (
               <Collapse aboutTitle="Équipements">
               <ul className='logement-equipments-collapse'>
@@ -72,7 +76,7 @@ function Announce() {
               </ul>
             </Collapse>
             )}
-            
+            </div>
           </div>
         </div>
       )}

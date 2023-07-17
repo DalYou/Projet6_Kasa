@@ -5,9 +5,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 121px;
+  padding: 6px 12px;
   margin: 15px auto 0 auto;
-  max-width: 600px;
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+
+  @media screen and (min-width: 200px) and(max-width: 1200px) {
+    margin: auto;
+  }
 }
 
 .collapse_header h2 {
@@ -32,5 +38,6 @@
   margin: 0 auto 20px auto;
   height: 150px;
   text-align: justify;
-  max-width: 800px;
+  max-width: 100%;
+  max-width: 900px;
 }

@@ -1,16 +1,13 @@
 .host_Picture img {
   border-radius: 50%;
-  display: flex;
-  margin-top: 25px;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
 }
 
 .host_container {
   display: flex;
-
-  @media screen and (min-width: 200px) and (max-width: 1400px) {
-    display: flex;
-    justify-content: flex-end;
-  }
+  align-items: center;
 }
 
 .host_name {
